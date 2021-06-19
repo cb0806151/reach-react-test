@@ -20,7 +20,7 @@ This application is a showcase of connecting a React application to an Algorand 
 - run the `./reach version` command to ensure it installed
 - run the `REACH_CONNECTOR_MODE=ALGO ./reach devnet` command to start the testnet
 - start up a new terminal and navigate to the `reach-react-test` folder 
-- now run the `yarn dev` command to run the applications frontend
+- now run the `yarn start` command to run the applications frontend
 - navigate to the localhost link given by the above command to view the application
 
 </p>
