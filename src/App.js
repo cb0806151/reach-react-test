@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import * as reach from '@reach-sh/stdlib/ALGO';
+import { loadStdlib } from '@reach-sh/stdlib';
 import { useRef } from 'react';
+const reach = loadStdlib('ALGO');
 
 function App() {
   const account = useRef();
@@ -12,7 +13,7 @@ function App() {
     await getBalance();
   }
   const getAccount = async () => {
-    account.current = await reach.getDefaultAccount();
+    account.current = await reach.createAccount();
     console.log(account.current);
     console.log(account.current.getAddress());
   }
@@ -22,8 +23,7 @@ function App() {
     console.log(balance.current);
   }
   const fundWallet = async () => {
-    let faucet = await reach.getFaucet();
-    await reach.transfer(faucet, account.current, reach.parseCurrency(fundAmount.current));
+    await reach.fundFromFaucet(account.current, reach.parseCurrency(fundAmount.current));
     await getBalance();
   }
   return (
